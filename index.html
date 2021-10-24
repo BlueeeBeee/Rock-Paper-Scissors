@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Testing</title>
+  <meta charset="UTF-8"/>
+  <h1>Rock Paper Scissors</h1>
+</head>
+<body>
+  <script>
+let c =["rock","paper","scissors"];
+let s = 0;
+function computerplay(){
+    let n=Math.round(Math.random()*2);  
+    return (c[n]);
+} 
+function playround(playerSelection,computerselection){ 
+    if(playerSelection.toLowerCase()=="rock"){
+        if(computerselection=='paper'){
+            s=s-1;
+            return "You Lose! Paper beats Rock"; 
+        }
+        else if(computerselection=="scissors"){
+            s=s+1;
+            return "You Win! Rock beats Scissors";
+        }
+        else {
+            return "It's a draw!";
+        }
+    }
+    else if(playerSelection.toLowerCase()=="paper"){
+        if(computerselection=='rock'){
+            s=s+1;
+            return "You Win! Paper beats Rock";
+        }
+        else if(computerselection=="scissors"){
+            s=s-1;
+            return "You Lose! Scissors beats Paper";
+        }
+        else {
+            return "It's a draw!";
+        }
+    }
+    else if(playerSelection.toLowerCase()=="scissors"){
+        if(computerselection=='rock'){
+            s=s-1;
+            return "You Lose! Rock beats Scissors";
+        }
+        else if(computerselection=="paper"){
+            s=s+1;
+            return "You Win! Scissors beats Paper";
+        }
+        else {
+            return "It's a draw!";
+        }
+    }
+    else{ return "Wrong input";}    
+}
+
+function game(){
+    for(let i=0;i<5;i++){
+        const playerSelection = prompt("Enter your selection")
+        let computerselection = computerplay();
+        playround(playerSelection,computerselection);
+        
+    }
+    
+} 
+
+game();
+
+    if(s>0){
+        console.log("You win")
+    }
+    else if(s===0){
+        console.log("It's a draw")
+    }
+    else{
+        console.log("You lost")
+    }
+
+  </script>
+</body>
+</html>
